@@ -1,7 +1,8 @@
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require('./routes/api');
+const routes = require('../routes/api');
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +16,8 @@ mongoose
 
 mongoose.Promise = global.Promise;
 
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
@@ -24,6 +27,10 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.use('/api', routes);
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+});
 
 app.use((err, req, res, next) => {
     console.log(err);
