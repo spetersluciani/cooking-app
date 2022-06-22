@@ -1,0 +1,147 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "defaultTitle",
+    "description": "defaultDescription",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:9000"
+    }
+  ],
+  "paths": {
+    "/api/recipe": {
+      "get": {
+        "description": "Auto generated using Swagger Inspector",
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http://localhost:9000"
+          }
+        ]
+      },
+      "post": {
+        "description": "Auto generated using Swagger Inspector",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/api_recipe_body"
+              },
+              "examples": {
+                "0": {
+                  "value": "{\n\t\"recipe\":\n\t{\n\t\t\"name\": \"test\",\n\t\t\"cooktime\": \"12 hours\",\n\t\t\"cookingMethod\": \"Cooking\",\n\t\t\"prepTime\": \"20 minutes\",\n\t\t\"recipeCategory\": \"Category\",\n\t\t\"recipeCuisine\": [\"Cuisine\"],\n\t\t\"recipeIngredients\": [{\n\t\t    \"measurement\": 1,\n\t\t    \"units\": \"cup\",\n\t\t    \"name\" : \"food\"\n\t\t}],\n\t\t\"recipeInstructions\": [\"combine food\", \"make food\"],\n\t\t\"recipeYield\": 2\n\t}\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Auto generated using Swagger Inspector",
+            "content": {
+              "application/json; charset=utf-8": {
+                "schema": {
+                  "type": "string"
+                },
+                "examples": {}
+              }
+            }
+          }
+        },
+        "servers": [
+          {
+            "url": "http://localhost:9000"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://localhost:9000"
+        }
+      ]
+    }
+  },
+  "components": {
+    "schemas": {
+      "apirecipe_recipe_recipeIngredients": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "units": {
+            "type": "string"
+          },
+          "measurement": {
+            "type": "integer"
+          }
+        },
+        "example": null
+      },
+      "apirecipe_recipe": {
+        "type": "object",
+        "properties": {
+          "recipeYield": {
+            "type": "integer"
+          },
+          "recipeIngredients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/apirecipe_recipe_recipeIngredients"
+            }
+          },
+          "cookingMethod": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "recipeCategory": {
+            "type": "string"
+          },
+          "cooktime": {
+            "type": "string"
+          },
+          "recipeCuisine": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prepTime": {
+            "type": "string"
+          },
+          "recipeInstructions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "example": null
+      },
+      "api_recipe_body": {
+        "type": "object",
+        "properties": {
+          "recipe": {
+            "$ref": "#/components/schemas/apirecipe_recipe"
+          }
+        }
+      }
+    }
+  }
+}
