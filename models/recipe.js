@@ -9,11 +9,12 @@ const ingredientSchema = new Schema({
 });
 
 const recipeSchema = new Schema({
+    name: String,
     cooktime: String, 
     cookingMethod: String,
     prepTime: String,
     recipeCategory: String,
-    recipeCuisine: String,
+    recipeCuisine: [String],
     recipeIngredients: [ingredientSchema],
     recipeInstructions: [String],
     recipeYield: Number
