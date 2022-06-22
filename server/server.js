@@ -3,11 +3,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('../routes/api');
+
 require('dotenv').config();
 
 const app = express();
 
-const port = process.env.port || 5000;
+const port = process.env.port || 9000;
 
 mongoose
     .connect(process.env.DB, { useNewUrlParser: true })
