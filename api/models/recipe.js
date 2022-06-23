@@ -10,6 +10,7 @@ const ingredientSchema = new Schema({
 
 const recipeSchema = new Schema({
     dateCreated: Date,
+    views: Number,
     name: String,
     cooktime: String, 
     cookingMethod: String,
