@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import './RecipeSearch.css';
 
 export const RecipeSearch = ({recipes}) => {
 
     const [query, setQuery] = useState('');
+    const location = useLocation();
+
+    useEffect(() => {
+        setQuery('');
+    }, [location]);
 
     return (
         <div className="searchBar">
-            <input className="searchField" type='text' placeholder="Search for a recipe" onChange={event => setQuery(event.target.value)} />
-            <button className="searchButton">Find Recipe</button>
+            <input className="searchField" type='text' value={query} placeholder="Search for a recipe" onChange={event => setQuery(event.target.value)} />
             {query && 
                 <div className="searchData">
                     {recipes
@@ -18,7 +23,7 @@ export const RecipeSearch = ({recipes}) => {
                         }
                     })
                     .map((recipe, index) => (
-                        <p key={index}>{recipe.name}</p>
+                        <p key={index}><Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link></p>
                     ))}
                 </div>
             }
