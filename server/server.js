@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const routes = require('../routes/api');
+const api = require('../api/api');
 
 require('dotenv').config();
 
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.use('/api', routes);
+app.use('/api', api);
 
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));

@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const swaggerUI = require('swagger-ui-express');
 const swaggerDoc = require('./swagger.json');
-const Recipe = require('../models/recipe');
-const RecipeCategory = require('../models/recipeCategory');
+const Recipe = require('./models/recipe');
+const RecipeCategory = require('./models/recipeCategory');
 
 router.use('/documentation', swaggerUI.serve);
 router.get('/documentation', swaggerUI.setup(swaggerDoc));
@@ -33,8 +33,10 @@ router.get('/recipe/:id', (req, res, next) => {
 });
 
 router.post('/recipe', (req, res, next) => {
-    if (req.body.recipe) {
-        Recipe.create(req.body.recipe)
+    let data = req.body.recipe;
+    if (data) {
+        data.dateCreated = new Date();
+        Recipe.create(data)
             .then((data) => res.json(data))
             .catch(next);
     }
