@@ -32,10 +32,19 @@ router.get('/recipe/:id', (req, res, next) => {
         .catch(next);
 });
 
+router.patch('/recipe/:id', (req, res, next) => {
+    let queryID = {_id: req.params.id};
+    let newData = { $set: req.body.payload };
+    Recipe.updateOne(queryID, newData)
+    .then((data) => res.json(data))
+    .catch(next);
+})
+
 router.post('/recipe', (req, res, next) => {
     let data = req.body.recipe;
     if (data) {
         data.dateCreated = new Date();
+        data.views = 0;
         Recipe.create(data)
             .then((data) => res.json(data))
             .catch(next);
