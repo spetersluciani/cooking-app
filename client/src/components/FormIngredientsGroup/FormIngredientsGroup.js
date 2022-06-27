@@ -9,6 +9,17 @@ export const FormIngredientsGroup = () => {
         name: ''
     }]);
 
+    const addIngredientField = (e) => {
+        e.preventDefault();
+        let id = (ingredients.length === 0 ? 1 : ingredients[ingredients.length - 1].id + 1);
+        setIngredients(ingredients => [...ingredients, {
+            id: id,
+            amount: '',
+            measurement: 'tbsp',
+            name: ''
+        }]);
+    }
+
     const updateIngredient = (updatedIngredient) => {
         let newIngredients = [...ingredients];
         let targetIngredient = newIngredients.findIndex(ingredient => ingredient.id === updatedIngredient.id);
@@ -18,29 +29,25 @@ export const FormIngredientsGroup = () => {
         setIngredients(newIngredients);
     }
 
-    const addIngredientField = (e) => {
-        e.preventDefault();
-        let id = ingredients[ingredients.length - 1].id + 1;
-        setIngredients(ingredients => [...ingredients, {
-            id: id,
-            amount: '',
-            measurement: 'tbsp',
-            name: ''
-        }]);
-    }
-
-    const removeIngredientField = (e, index) => {
+    const removeIngredientField = (e, id) => {
         e.preventDefault();
 
-        let array = [...ingredients];
-        array.splice(index, 1);
-        setIngredients(array);
+        let newIngredients = [...ingredients];
+        let targetIngredient = newIngredients.findIndex(ingredient => ingredient.id === id);
+
+        newIngredients.splice(targetIngredient, 1);
+        setIngredients(newIngredients);
     }
 
     return (
         <div className="ingredientGroup">
             {ingredients.map(ingredient => {
-                return <IngredientField key={ingredient.id} id={ingredient.id} amount={ingredient.amount} measurement={ingredient.measurement} name={ingredient.name} removable={true} updateIngredient={updateIngredient} />
+                return (
+                    <div key={ingredient.id} className="ingredientField">
+                        <IngredientField id={ingredient.id} amount={ingredient.amount} measurement={ingredient.measurement} name={ingredient.name} updateIngredient={updateIngredient} />
+                        <button onClick={(e) => removeIngredientField(e, ingredient.id)}>X</button>
+                    </div>
+                )
             })}
             <button onClick={(e) => addIngredientField(e)}>Add Ingredient</button>
         </div>

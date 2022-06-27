@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export const IngredientField = ({id, removable, amount, measurement, name, updateIngredient}) => {
+export const IngredientField = ({id, amount, measurement, name, updateIngredient}) => {
     const [ingredientAmount, setIngredientAmount] = useState(amount);
     const [ingredientMeasurement, setIngredientMeasurement] = useState(measurement);
     const [ingredientName, setIngredientName] = useState(name);
@@ -29,8 +29,6 @@ export const IngredientField = ({id, removable, amount, measurement, name, updat
             </select>
             <label htmlFor={'ingredientName'}>Name</label>
             <input type={'text'} id={'ingredientName'} value={ingredientName} onChange={(e) => setIngredientName(e.target.value)} />
-            {removable && <button>X</button>}
-            {id}
         </div>
     )
 }
