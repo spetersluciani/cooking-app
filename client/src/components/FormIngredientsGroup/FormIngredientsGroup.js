@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { IngredientField } from "../IngredientField/IngredientField";
 
-export const FormIngredientsGroup = () => {
+export const FormIngredientsGroup = ({setRecipeIngredients}) => {
     const [ingredients, setIngredients] = useState([{
         id: 1,
         amount: '',
@@ -39,9 +39,15 @@ export const FormIngredientsGroup = () => {
         setIngredients(newIngredients);
     }
 
+    useEffect(() => {
+        let sendIngredients = [...ingredients];
+        setRecipeIngredients(sendIngredients);
+    }, [ingredients])
+
     return (
         <div className="ingredientGroup">
-            {ingredients.map(ingredient => {
+            <label>Ingredients</label>
+            {ingredients && ingredients.map(ingredient => {
                 return (
                     <div key={ingredient.id} className="ingredientField">
                         <IngredientField id={ingredient.id} amount={ingredient.amount} measurement={ingredient.measurement} name={ingredient.name} updateIngredient={updateIngredient} />
