@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { RecipeSearch } from "../../components/RecipeSearch/RecipeSearch";
 import { Routes, Route } from 'react-router-dom';
 import { Home } from "../Home/Home";
-import { Recipe } from "../Recipe/Recipe";
+import { Recipe } from "../../components/Recipe/Recipe";
 
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
