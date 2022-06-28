@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-export const IngredientField = ({id, amount, measurement, name, updateIngredient}) => {
-    const [ingredientAmount, setIngredientAmount] = useState(amount);
+export const IngredientField = ({id, measurement, units, name, updateIngredient}) => {
     const [ingredientMeasurement, setIngredientMeasurement] = useState(measurement);
+    const [ingredientUnits, setIngredientUnits] = useState(units);
     const [ingredientName, setIngredientName] = useState(name);
 
     const measurementUnits = [ 'tbsp', 'tsp', 'oz', 'fl. oz', 'cup', 'quart', 'pint', 'gallon', 'liter', 'lb', 'mL', 'g', 'kg' ];
@@ -10,19 +10,19 @@ export const IngredientField = ({id, amount, measurement, name, updateIngredient
     useEffect(() => {
         let ingredient = {
             id: id,
-            amount: ingredientAmount,
             measurement: ingredientMeasurement,
+            units: ingredientUnits,
             name: ingredientName
         }
         updateIngredient(ingredient);
-    }, [ingredientAmount, ingredientMeasurement, ingredientName]);
+    }, [ingredientMeasurement, ingredientUnits, ingredientName]);
 
     return (
         <div className="ingredientRow" id={id}>
             <label htmlFor={'ingredientAmount'}>Amount</label>
-            <input type={'number'} id={'ingredientAmount'} min='0' value={ingredientAmount} onChange={(e) => setIngredientAmount(e.target.value)} />
+            <input type={'number'} id={'ingredientAmount'} min='0' value={ingredientMeasurement} onChange={(e) => setIngredientMeasurement(e.target.value)} />
             <label htmlFor={'ingredientMeasurement'}>Measurement</label>
-            <select id={'ingredientMeasurement'} value={ingredientMeasurement} onChange={(e) => setIngredientMeasurement(e.target.value)} >
+            <select id={'ingredientMeasurement'} value={ingredientUnits} onChange={(e) => setIngredientUnits(e.target.value)} >
                 {measurementUnits.map((unit, index) => {
                    return <option key={index} value={unit}>{unit}</option>;
                 })}
