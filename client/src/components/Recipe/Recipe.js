@@ -12,7 +12,7 @@ export const Recipe = () => {
         .then((response) => {
             setCurrentRecipe(response[0]);
         });
-    }, []);
+    }, [recipeId]);
 
     if (currentRecipe !== undefined) {
         return (
