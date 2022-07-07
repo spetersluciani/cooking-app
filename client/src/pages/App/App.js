@@ -3,6 +3,7 @@ import { RecipeSearch } from "../../components/RecipeSearch/RecipeSearch";
 import { Routes, Route } from 'react-router-dom';
 import { Home } from "../Home/Home";
 import { Recipe } from "../../components/Recipe/Recipe";
+import { CreateRecipe } from "../CreateRecipe/CreateRecipe";
 
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -21,6 +22,7 @@ export const App = () => {
         <RecipeSearch recipes={recipes} />
         <Routes>
           <Route path="/" element={<Home recipes={recipes} />} />
+          <Route path="/create" element={<CreateRecipe />} />
           <Route path="/recipe/:recipeId" element={<Recipe />} />
         </Routes>
       </div>

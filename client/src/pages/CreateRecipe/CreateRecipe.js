@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from "react";
-import { Input } from "../Input/Input";
-import { FormIngredientsGroup } from "../FormIngredientsGroup/FormIngredientsGroup";
-import { FormInstructionsGroup } from "../FormInstructionsGroup/FormInstructionsGroup";
+import { Input } from "../../components/Input/Input";
+import { FormIngredientsGroup } from "../../components/FormIngredientsGroup/FormIngredientsGroup";
+import { FormInstructionsGroup } from "../../components/FormInstructionsGroup/FormInstructionsGroup";
 import { useNavigate } from "react-router-dom";
-import { ImageUploader } from "../ImageUploader/ImageUploader";
+import { ImageUploader } from "../../components/ImageUploader/ImageUploader";
 
 export const CreateRecipe = () => {
     const navigate = useNavigate();
