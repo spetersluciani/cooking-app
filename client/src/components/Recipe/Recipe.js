@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export const Recipe = () => {
@@ -17,8 +17,8 @@ export const Recipe = () => {
     if (currentRecipe !== undefined) {
         return (
             <div>
-                <h1>Recipe</h1>
-                <h2>{currentRecipe.name}</h2>
+                <h1>{currentRecipe.name}</h1>
+                {currentRecipe.recipeImage && <img src={currentRecipe.recipeImage} /> }
                 <p>Cook Time: {currentRecipe.cooktime}</p>
                 <p>Prep Time: {currentRecipe.prepTime}</p>
                 <p>Yield: {currentRecipe.recipeYield} serving{currentRecipe.recipeYield > 1 && 's'}</p>

@@ -3,6 +3,7 @@ import { Input } from "../Input/Input";
 import { FormIngredientsGroup } from "../FormIngredientsGroup/FormIngredientsGroup";
 import { FormInstructionsGroup } from "../FormInstructionsGroup/FormInstructionsGroup";
 import { useNavigate } from "react-router-dom";
+import { ImageUploader } from "../ImageUploader/ImageUploader";
 
 export const CreateRecipe = () => {
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ export const CreateRecipe = () => {
     const [recipeIngredients, setRecipeIngredients] = useState([]);
     const [recipeInstructions, setRecipeInstructions] = useState([]);
     const [recipeYield, setRecipeYield] = useState('');
+    const [recipeImage, setRecipeImage] = useState('');
 
 
     const handleNewRecipe = (e) => {
@@ -26,7 +28,8 @@ export const CreateRecipe = () => {
             recipeCategory: recipeCategory,
             recipeIngredients: recipeIngredients,
             recipeInstructions: recipeInstructions,
-            recipeYield: recipeYield
+            recipeYield: recipeYield,
+            recipeImage: recipeImage
         }
 
         const requestOptions = {
@@ -52,6 +55,7 @@ export const CreateRecipe = () => {
                 <Input label={'Recipe Category'} type={'text'} inputName={'recipeCategory'} value={recipeCategory} onChange={(e) => setRecipeCategory(e.target.value)} />
                 <FormIngredientsGroup recipeIngredients={recipeIngredients} setRecipeIngredients={setRecipeIngredients} />
                 <FormInstructionsGroup setRecipeInstructions={setRecipeInstructions} />
+                <ImageUploader setRecipeImage={setRecipeImage} />
                 <input type={'submit'} value={'Create Recipe'} />
             </form>
         </Fragment>

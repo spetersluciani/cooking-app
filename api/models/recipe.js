@@ -19,7 +19,8 @@ const recipeSchema = new Schema({
     recipeCuisine: [String],
     recipeIngredients: [ingredientSchema],
     recipeInstructions: [String],
-    recipeYield: Number
+    recipeYield: Number,
+    recipeImage: String
 });
 
 const Recipe = mongoose.model('recipe', recipeSchema);
