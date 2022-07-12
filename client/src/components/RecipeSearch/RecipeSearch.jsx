@@ -12,10 +12,10 @@ export const RecipeSearch = ({recipes}) => {
     }, [location]);
 
     return (
-        <div className="searchBar">
-            <input className="searchField" type='text' value={query} placeholder="Search for a recipe" onChange={event => setQuery(event.target.value)} />
+        <div className="search-bar">
+            <input className="search-field" type='text' value={query} placeholder="Search for a recipe" onChange={event => setQuery(event.target.value)} />
             {query && 
-                <div className="searchData">
+                <div className="search-data">
                     {recipes
                     .filter(recipe => {
                         if (recipe.name.toLowerCase().includes(query.toLowerCase())) {

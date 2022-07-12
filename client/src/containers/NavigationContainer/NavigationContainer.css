@@ -2,3 +2,8 @@
     background-color: #73A626;
     padding: 0.5em;
 }
+
+.navigation-container > * {
+    display: inline-block;
+    margin: 0 1rem;
+}
