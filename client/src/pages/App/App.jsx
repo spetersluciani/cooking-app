@@ -5,6 +5,7 @@ import { Home } from "../Home/Home";
 import { Recipe } from "../../components/Recipe/Recipe";
 import { CreateRecipe } from "../CreateRecipe/CreateRecipe";
 import { GlobalNavigation } from "../../components/GlobalNavigation/GlobalNavigation";
+import { NavigationContainer } from "../../containers/NavigationContainer/NavigationContainer";
 
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -20,8 +21,10 @@ export const App = () => {
   if (recipes.length !== 0) {
     return (
       <div className="App">
-        <GlobalNavigation />
-        <RecipeSearch recipes={recipes} />
+        <NavigationContainer>
+          <GlobalNavigation />
+          <RecipeSearch recipes={recipes} />
+        </NavigationContainer>
         <Routes>
           <Route path="/" element={<Home recipes={recipes} />} />
           <Route path="/create" element={<CreateRecipe />} />
