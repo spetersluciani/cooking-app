@@ -1,0 +1,25 @@
+.global-navigation > * {
+    color: white;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    position: relative;
+}
+
+.global-navigation > *:after {
+    content: '';
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    position: absolute;
+    bottom: -0.25em;
+    left: 0;
+    width: 0;
+    transition: all 200ms;
+}
+
+.global-navigation > *:hover:after, .global-navigation > *.active:after {
+    width: 100%;
+    transition: all 200ms;
+}
+
+.global-navigation > *.active:after {
+    border-bottom: 2px solid white;
+}
