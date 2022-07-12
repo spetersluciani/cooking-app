@@ -21,15 +21,19 @@ export const App = () => {
   if (recipes.length !== 0) {
     return (
       <div className="App">
-        <NavigationContainer>
-          <GlobalNavigation />
-          <RecipeSearch recipes={recipes} />
-        </NavigationContainer>
-        <Routes>
-          <Route path="/" element={<Home recipes={recipes} />} />
-          <Route path="/create" element={<CreateRecipe />} />
-          <Route path="/recipe/:recipeId" element={<Recipe />} />
-        </Routes>
+        <header>
+          <NavigationContainer>
+            <GlobalNavigation />
+            <RecipeSearch recipes={recipes} />
+          </NavigationContainer>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home recipes={recipes} />} />
+            <Route path="/create" element={<CreateRecipe />} />
+            <Route path="/recipe/:recipeId" element={<Recipe />} />
+          </Routes>
+        </main>
       </div>
     );
   }
