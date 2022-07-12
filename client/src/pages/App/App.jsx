@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Home } from "../Home/Home";
 import { Recipe } from "../../components/Recipe/Recipe";
 import { CreateRecipe } from "../CreateRecipe/CreateRecipe";
+import { GlobalNavigation } from "../../components/GlobalNavigation/GlobalNavigation";
 
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
@@ -19,6 +20,7 @@ export const App = () => {
   if (recipes.length !== 0) {
     return (
       <div className="App">
+        <GlobalNavigation />
         <RecipeSearch recipes={recipes} />
         <Routes>
           <Route path="/" element={<Home recipes={recipes} />} />

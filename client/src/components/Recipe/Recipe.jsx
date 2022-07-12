@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import './Recipe.css';
 
 export const Recipe = () => {
 
@@ -16,7 +17,7 @@ export const Recipe = () => {
 
     if (currentRecipe !== undefined) {
         return (
-            <div>
+            <div className="recipe-container">
                 <h1>{currentRecipe.name}</h1>
                 {currentRecipe.recipeImage && <img src={currentRecipe.recipeImage} /> }
                 <p>Cook Time: {currentRecipe.cooktime}</p>
