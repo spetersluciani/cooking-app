@@ -6,6 +6,7 @@ import { Recipe } from "../../components/Recipe/Recipe";
 import { CreateRecipe } from "../CreateRecipe/CreateRecipe";
 import { GlobalNavigation } from "../../components/GlobalNavigation/GlobalNavigation";
 import { NavigationContainer } from "../../containers/NavigationContainer/NavigationContainer";
+import './App.css';
 
 export const App = () => {
   const [recipes, setRecipes] = useState([]);
