@@ -12,7 +12,7 @@ export const App = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-      fetch(process.env.REACT_APP_API_URL + 'recipe')
+      fetch('/api/recipe')
       .then(response => response.json())
       .then((response) => {
           setRecipes(response);

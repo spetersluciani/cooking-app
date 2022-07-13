@@ -37,7 +37,7 @@ export const CreateRecipe = () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({"recipe": newRecipe})
         };
-        fetch('http://localhost:9000/api/recipe', requestOptions)
+        fetch('/api/recipe', requestOptions)
             .then(response => response.json())
             .then(data => {
                 navigate(`../recipe/${data._id}`);
