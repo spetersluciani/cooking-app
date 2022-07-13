@@ -7,7 +7,7 @@ export const Recipe = () => {
     const { recipeId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:9000/api/recipe/${recipeId}`)
+        fetch(`${process.env.REACT_APP_API_URL}recipe/${recipeId}`)
         .then(response => response.json())
         .then((response) => {
             setCurrentRecipe(response[0]);

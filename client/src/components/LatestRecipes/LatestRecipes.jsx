@@ -9,8 +9,8 @@ export const LatestRecipes = ({recipes}) => {
             <h2>Latest Recipes</h2>
             <div className="recipeList">
                 {sortedRecipes.map((recipe, index) => (
-                    <article className="list-item">
-                        <p key={index}><Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link></p>
+                    <article key={index} className="list-item">
+                        <p><Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link></p>
                     </article>
                 )
                 )}

@@ -9,8 +9,8 @@ export const PopularRecipes = ({recipes}) => {
             <h2>Popular Recipes</h2>
             <div className="recipeList">
                 {filteredRecipes.map((recipe, index) => (
-                    <article className="list-item">
-                        <p key={index}><Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link></p>
+                    <article key={index} className="list-item">
+                        <p><Link to={`/recipe/${recipe._id}`}>{recipe.name}</Link></p>
                     </article>
                 )
                 )}
