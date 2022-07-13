@@ -7,8 +7,9 @@
     "start": "node server/server.js",
     "build": "cd client && npm install && npm run build"
   },
-  "engines": {
-    "node": "16.13.2"
+  "engines": { 
+    "npm": "8.5.0", 
+    "node": "16.14.2"
   },
   "repository": {
     "type": "git",
